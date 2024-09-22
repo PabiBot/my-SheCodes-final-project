@@ -14,7 +14,7 @@ function refreshWeather(response) {
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
-  temperature.innerHTML = Math.round(temperature);
+  temperatureElement.innerHTML = Math.round(temperature);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon"
           />`;
 
@@ -85,9 +85,8 @@ function displayForecast(response) {
       `
           <div class="weather-forecast-day"> 
             <div class="weather-forecast-date">${formatDay(day.time)}</div>
-            <div class="weather-forecast-icon">
-            <img src="${day.condition.icon_url}" />
-            </div>
+            
+            <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
             <div class="weather-forecast-temperatures">
               <div class="weather-forecast-temperature">
               <strong>${Math.round(day.temperature.maximum)}°</strong>
